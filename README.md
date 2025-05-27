@@ -28,7 +28,7 @@ cd gen3-mcp-client
 
 2. Install dependencies using uv:
 ```bash
-uv pip install -r requirements.txt
+uv sync
 ```
 
 ## Configuration
@@ -39,6 +39,9 @@ ANTHROPIC_API_KEY=your_api_key_here  # If using Claude
 ```
 
 2. Configure MCP servers in `mcp_servers/mds_mcp.json`:
+
+### Running locally
+
 ```json
 {
     "mcpServers": {
@@ -55,12 +58,30 @@ ANTHROPIC_API_KEY=your_api_key_here  # If using Claude
 }
 ```
 
+### Using dockerized MCP server
+
+```json
+{
+    "mcpServers": {
+        "gen3": {
+            "command": "docker",
+            "args": [
+                "run",
+                "-i",
+                "--rm",
+                "gen3-mcp-server"
+            ]
+        }
+    }
+}
+```
+
 ## Usage
 
 Run the client:
 
 ```bash
-python client.py
+uv run client.py
 ```
 
 The client will:
@@ -68,15 +89,6 @@ The client will:
 2. Initialize the specified LLM (Claude or Ollama)
 3. Process queries about research studies and data
 4. Output analysis results
-
-## Dependencies
-
-- anthropic>=0.51.0
-- langchain-anthropic>=0.3.13
-- langchain-ollama>=0.3.3
-- mcp>=1.8.0
-- mcp-use>=1.2.13
-- python-dotenv>=1.1.0
 
 ## Development
 

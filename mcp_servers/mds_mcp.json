@@ -1,12 +1,12 @@
 {
     "mcpServers": {
         "gen3": {
-            "command": "uv",
+            "command": "docker",
             "args": [
-                "--directory",
-                "/Users/haraprasadj/workspace/lab/gen3-mcp-server",
                 "run",
-                "gen3.py"
+                "-i",
+                "--rm",
+                "gen3-mcp-server"
             ]
         }
     }
