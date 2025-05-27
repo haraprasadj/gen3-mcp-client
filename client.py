@@ -35,18 +35,18 @@ async def main():
 
     # Run the query
     result = await agent.run(
-        "Get me a summary of the first 10 metadata studies",
+        "Analyze a few studies and tell me what this data is all about, like what kind of research can be done on it?",
         max_steps=50
     )
     print(f"\nResult: {result}")
-    # for item in result:
-    #     if item.get('type') == 'text' and 'text' in item:
-    #         # Get the text content
-    #         text_content = item['text']
+    for item in result:
+        if item.get('type') == 'text' and 'text' in item:
+            # Get the text content
+            text_content = item['text']
             
-    #         # Print with proper line breaks
-    #         print(text_content)
-    #         print()
+            # Print with proper line breaks
+            print(text_content)
+            print()
 
 if __name__ == "__main__":
     asyncio.run(main())

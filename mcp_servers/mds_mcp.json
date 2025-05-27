@@ -7,11 +7,7 @@
                 "/Users/haraprasadj/workspace/lab/gen3-mcp-server",
                 "run",
                 "gen3.py"
-            ],
-            "env": {
-                "GEN3_URL": "${GEN3_URL}",
-                "GEN3_ACCESS_TOKEN": "${GEN3_ACCESS_TOKEN}"
-            }
+            ]
         }
     }
 }
